@@ -21,9 +21,26 @@ const els = {
 els.formEl.addEventListener('submit', (event) => {
   event.preventDefault();
   const kilograms = els.inputEl.value;
-  const lb = kilograms * 2.2046;
-  const g = kilograms / 0.0010000;
-  const oz = kg * 35.274;
-  els.divOutputEl.append()
+  createAnswersUl(kilograms);
 })
 
+function createAnswersUl(kg) {
+  const ulEl = document.createElement('ul')
+  els.divOutputEl.append(ulEl);
+
+  const lb = kg * 2.2046;
+  const liEl1 = document.createElement('li');
+  liEl1.textContent = `${lb} lb`;
+  ulEl.append(liEl1);
+
+  const g = kg / 0.0010000;
+  const liEl2 = document.createElement('li');
+  liEl2.textContent = `${g} g`;
+  ulEl.append(liEl2);
+
+  const oz = kg * 35.274;
+  const liEl3 = document.createElement('li');
+  liEl3.textContent = `${oz} oz`;
+  ulEl.append(liEl3);
+
+}
