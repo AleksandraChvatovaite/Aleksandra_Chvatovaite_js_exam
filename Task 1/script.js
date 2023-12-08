@@ -20,8 +20,16 @@ const els = {
 
 els.formEl.addEventListener('submit', (event) => {
   event.preventDefault();
-  const kilograms = els.inputEl.value;
-  createAnswersUl(kilograms);
+  const userInput = els.inputEl.value;
+  if (typeof userInput !== 'number') {
+    const errEl = document.createElement('h2');
+    errEl.textContent = 'Please enter a valid number for weight!';
+    els.divOutputEl.append(errEl);
+    return;
+  }
+  createAnswersUl(userInput);
+  
+ 
 })
 
 function createAnswersUl(kg) {
@@ -42,5 +50,4 @@ function createAnswersUl(kg) {
   const liEl3 = document.createElement('li');
   liEl3.textContent = `${oz} oz`;
   ulEl.append(liEl3);
-
 }
