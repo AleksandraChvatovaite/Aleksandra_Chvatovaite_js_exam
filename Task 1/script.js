@@ -21,22 +21,24 @@ const els = {
 els.formEl.addEventListener('submit', (event) => {
   event.preventDefault();
   const userInput = els.inputEl.value;
-  if (typeof userInput !== 'number') {
-    const errEl = document.createElement('h2');
-    errEl.textContent = 'Please enter a valid number for weight!';
-    els.divOutputEl.append(errEl);
-    return;
+  if (!isNaN(userInput)) {
+    const userNumber = +userInput;
+    createAnswersUl(userNumber);
+  } else {
+    els.divOutputEl.innerHTML = '';
+     const errEl = document.createElement('h2');
+     errEl.textContent = 'Please enter a valid number for weight!';
+     els.divOutputEl.append(errEl);
   }
-  createAnswersUl(userInput);
   
- 
 })
 
 function createAnswersUl(kg) {
+  els.divOutputEl.innerHTML = '';
   const ulEl = document.createElement('ul')
   els.divOutputEl.append(ulEl);
 
-  const lb = kg * 2.2046;
+  const lb = (kg * 2.2046).toFixed(2);
   const liEl1 = document.createElement('li');
   liEl1.textContent = `${lb} lb`;
   ulEl.append(liEl1);
@@ -46,8 +48,10 @@ function createAnswersUl(kg) {
   liEl2.textContent = `${g} g`;
   ulEl.append(liEl2);
 
-  const oz = kg * 35.274;
+  const oz = (kg * 35.274).toFixed(2);
   const liEl3 = document.createElement('li');
   liEl3.textContent = `${oz} oz`;
   ulEl.append(liEl3);
 }
+
+//pasidaryti klaidas ir li kad issitrintu kas kart paspaudus per naujo

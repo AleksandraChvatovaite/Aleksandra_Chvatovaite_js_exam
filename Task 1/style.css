@@ -52,6 +52,7 @@ form {
   color: #fff;
 }
 
+
 /* Tablet */
 @media screen and (min-width: 768px) {
   .headline {
@@ -62,4 +63,10 @@ form {
   #submit-btn {
     font-size: 2em;
   }
+}
+
+#output {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.5em;
 }
