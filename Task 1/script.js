@@ -27,7 +27,7 @@ els.formEl.addEventListener('submit', (event) => {
   } else {
     els.divOutputEl.innerHTML = '';
      const errEl = document.createElement('h2');
-     errEl.textContent = 'Please enter a valid number for weight!';
+     errEl.textContent = 'Please enter a valid weight';
      els.divOutputEl.append(errEl);
   }
   
@@ -36,22 +36,23 @@ els.formEl.addEventListener('submit', (event) => {
 function createAnswersUl(kg) {
   els.divOutputEl.innerHTML = '';
   const ulEl = document.createElement('ul')
+  ulEl.setAttribute('id', 'answer-list');
   els.divOutputEl.append(ulEl);
 
-  const lb = (kg * 2.2046).toFixed(2);
-  const liEl1 = document.createElement('li');
-  liEl1.textContent = `${lb} lb`;
-  ulEl.append(liEl1);
+
+  const lbs = (kg * 2.2046).toFixed(2);
+  addlistItem(ulEl, lbs, "lbs");
 
   const g = kg / 0.0010000;
-  const liEl2 = document.createElement('li');
-  liEl2.textContent = `${g} g`;
-  ulEl.append(liEl2);
+  addlistItem(ulEl, g, "g");
 
   const oz = (kg * 35.274).toFixed(2);
-  const liEl3 = document.createElement('li');
-  liEl3.textContent = `${oz} oz`;
-  ulEl.append(liEl3);
+  addlistItem(ulEl, oz, "oz");
 }
 
-//pasidaryti klaidas ir li kad issitrintu kas kart paspaudus per naujo
+function addlistItem(list, result, units) {
+  const li = document.createElement('li');
+  li.textContent = `${result} ${units}`;
+  list.append(li);
+}
+
