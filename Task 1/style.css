@@ -52,6 +52,16 @@ form {
   color: #fff;
 }
 
+ul#answer-list li {
+  margin: 1rem 0;
+  font-size: 2em;
+  text-align: center;
+}
+
+#output {
+  font-size: 1.2em;
+  text-align: center;
+}
 
 /* Tablet */
 @media screen and (min-width: 768px) {
@@ -63,10 +73,4 @@ form {
   #submit-btn {
     font-size: 2em;
   }
-}
-
-#output {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 1.5em;
 }
