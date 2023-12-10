@@ -12,3 +12,53 @@ būti stilizuota su CSS ir būti responsive;
 -------------------------------------------------------------------------- */
 
 const ENDPOINT = 'https://api.github.com/users';
+
+const els = {
+ divEl: document.getElementById('output'),
+ pElMsg: document.getElementById('message'),
+ btnEl: document.getElementById('btn'),
+ messageEl: document.getElementById('message'),
+}
+
+
+async function getUsers () {
+  try {
+    const resp = await fetch(ENDPOINT);
+    const data = await resp.json();
+    return data;
+  } catch (error) {
+    console.warn('getUsers klaida', error);
+    return false;
+  }
+}  
+
+//getUsers()
+
+els.btnEl.addEventListener('click', refresh)
+
+function createUserCard(user) {
+  const userCard = document.createElement('div');
+  userCard.setAttribute('class', 'user-card');
+  
+  const span = document.createElement('span');
+  span.textContent = user.login;
+
+  const img = document.createElement('img');
+  img.setAttribute('src', user.avatar_url);
+
+  userCard.append(span);
+  userCard.append(img);
+  return userCard;
+}
+
+async function refresh() {
+  els.messageEl.textContent = '';
+  const users = await getUsers();
+  
+  users.map(e => createUserCard(e))
+    .forEach(e => {
+      els.messageEl.append(e)
+    });;
+
+
+}
