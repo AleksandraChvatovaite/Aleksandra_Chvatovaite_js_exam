@@ -15,7 +15,6 @@ const ENDPOINT = 'https://api.github.com/users';
 
 const els = {
  divEl: document.getElementById('output'),
- pElMsg: document.getElementById('message'),
  btnEl: document.getElementById('btn'),
  messageEl: document.getElementById('message'),
 }
@@ -40,13 +39,14 @@ function createUserCard(user) {
   const userCard = document.createElement('div');
   userCard.setAttribute('class', 'user-card');
   
-  const span = document.createElement('span');
-  span.textContent = user.login;
+  const p = document.createElement('p');
+  p.setAttribute('class', 'card-p')
+  p.textContent = user.login;
 
   const img = document.createElement('img');
   img.setAttribute('src', user.avatar_url);
 
-  userCard.append(span);
+  userCard.append(p);
   userCard.append(img);
   return userCard;
 }
@@ -57,8 +57,6 @@ async function refresh() {
   
   users.map(e => createUserCard(e))
     .forEach(e => {
-      els.messageEl.append(e)
+      els.divEl.append(e)
     });;
-
-
 }
