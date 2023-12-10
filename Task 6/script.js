@@ -22,9 +22,9 @@ const users = [
 
 function getUserAverageAge(arr) {
  const sumAge = arr.reduce((acc, el) => acc + el.age, 0)
- const avgAge = Math.round(sumAge / arr.length);
- // ar cia gerai kad math round amziui darau? Veliau
- return avgAge;
+ return sumAge / arr.length;
 }
 
-getUserAverageAge(users)
+function getUsersNames(arr) {
+  return arr.map(e => e.name);
+}
