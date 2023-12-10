@@ -32,14 +32,15 @@ async function getCars () {
     card.classList.add('card');
     const h2 =  document.createElement('h2');
     h2.textContent = obj.brand;
-    card.append(h2);
-    els.divOutputEl.append(card);
     const modelsList = document.createElement('ul'); 
+    card.append(modelsList);
     obj.models.forEach(model => {
       const modelItem = document.createElement('li'); 
       modelItem.textContent = model;
-      modelsList.append(modelItem)
-      els.divOutputEl.append(modelsList);
+      modelsList.append(modelItem);
+      els.divOutputEl.append(card);
+      card.append(h2);
+      card.append(modelsList);
     });
   });
 })();

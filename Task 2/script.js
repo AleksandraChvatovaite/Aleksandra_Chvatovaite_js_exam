@@ -13,7 +13,6 @@ const els = {
 els.btnClick.addEventListener('click', countClicks);
 
 let count = 0;
-
 function countClicks() {
  count += 1;
  els.btnState.textContent = count;
