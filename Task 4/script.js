@@ -25,7 +25,7 @@ async function getCars () {
   }
 }  
 
-async function createCards() {
+(async function createCards() {
   const carsArr = await getCars();
   carsArr.forEach(obj => {
     const card = document.createElement('div');
@@ -42,5 +42,4 @@ async function createCards() {
       els.divOutputEl.append(modelsList);
     });
   });
-}
-createCards()
+})();
