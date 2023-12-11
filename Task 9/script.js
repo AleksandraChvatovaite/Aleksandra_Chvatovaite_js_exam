@@ -14,16 +14,16 @@ class Movie {
   title;
   director;
   budget;
-  constructor(titulas, direktorius, biudzetas) {
-    this.title = titulas;
-    this.director = direktorius;
+  constructor(pavadinimas, rezisierius, biudzetas) {
+    this.title = pavadinimas;
+    this.director = rezisierius;
     this.budget = biudzetas;
   }
-//   wasExpensive() {
-//     if (this.budget > 100000000) {
-//       return true;
-//     } else {
-//       return false;
-//     }
-//   }
+  wasExpensive() {
+    if (this.budget > 100000000) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

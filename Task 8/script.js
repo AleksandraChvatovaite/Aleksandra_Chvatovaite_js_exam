@@ -6,26 +6,19 @@ multiplication(a, b) - priima du skaičius ir grąžina jų daugybos rezultatą;
 division(a, b) - priima du skaičius ir grąžina jų dalybos rezultatą;
 ------------------------------------------------------------------------------------ */
 class Calculator {
-  num1;
-  num2;
-  constructor(sk1, sk2) {
-    this.num1 = sk1;
-    this.num2 = sk2;
+  sum(a, b) {
+    return a + b;
   }
 
-  sum () {
-    return this.num1 + this.num2;
+  subtraction(a, b) {
+    return a - b;
   }
 
-  subtraction () {
-    return this.num1 - this.num2;
+  multiplication(a, b) {
+    return a * b;
   }
-
-  multiplication() {
-    return this.num1 * this.num2;
-  }
-  division() {
-    return this.num1 / this.num2;
+  division(a, b) {
+    return a / b;
   }
 }
 
