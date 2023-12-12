@@ -25,6 +25,10 @@ function getUserAverageAge(arr) {
  return sumAge / arr.length;
 }
 
+// console.log('getUserAverageAge ===', getUserAverageAge(users));
+
 function getUsersNames(arr) {
   return arr.map(e => e.name);
 }
+
+// console.log('getUsersNames ===', getUsersNames(users));

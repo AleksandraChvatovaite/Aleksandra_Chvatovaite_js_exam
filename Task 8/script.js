@@ -22,3 +22,12 @@ class Calculator {
   }
 }
 
+// const calculator = new Calculator();
+
+// console.log('calculator.sum(2, 2) ===', calculator.sum(2, 2));
+
+// console.log('calculator.subtraction(2, 2) ===', calculator.subtraction(2, 2));
+
+// console.log('calculator.multiplication(2, 2) ===', calculator.multiplication(2, 2));
+
+// console.log('calculator.division(2, 2) ===', calculator.division(2, 2));

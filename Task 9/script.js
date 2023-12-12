@@ -27,3 +27,7 @@ class Movie {
     }
   }
 }
+
+// const movie = new Movie('Shrek', 'Person', 99999999999);
+
+// console.log('movie.wasExpensive() === ', movie.wasExpensive())

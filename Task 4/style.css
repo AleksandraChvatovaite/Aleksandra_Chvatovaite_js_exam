@@ -5,7 +5,6 @@
   box-sizing: border-box;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
-    /* list-style: none; */
 }
 
 /* Mobile first */
@@ -29,25 +28,14 @@
   color: #333;
 }
 
-/* @media screen and (max-width: 1366px) {
-  #output {
-    width: 100vw;
-  }
-
-  /* #output .card {
-    width: 2rem;
-  } * /
-} */
-
 #output {
   margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 #output .card {
-  /* width: 350px; */
   min-width: 50px;
   display: flex;
   flex-direction: column;
@@ -62,9 +50,3 @@
 #output .card h2 {
   margin-bottom: 1rem;
 }
-
-/* #output {
-  margin: 1em 2em;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-} */

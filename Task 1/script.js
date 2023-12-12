@@ -21,24 +21,26 @@ const els = {
 els.formEl.addEventListener('submit', (event) => {
   event.preventDefault();
   const userInput = els.inputEl.value;
+  let outputContent;
   if (!isNaN(userInput)) {
     const userNumber = +userInput;
-    createAnswersUl(userNumber);
+    outputContent = createAnswersUl(userNumber);
   } else {
-    els.divOutputEl.innerHTML = '';
-     const errEl = document.createElement('h2');
-     errEl.textContent = 'Please enter a valid weight';
-     els.divOutputEl.append(errEl);
+    outputContent = document.createElement('h2');
+    errEl.textContent = 'Please enter a valid weight';
   }
   
+  reloadOutput(outputContent);
 })
 
-function createAnswersUl(kg) {
+function reloadOutput(outputContent) {
   els.divOutputEl.innerHTML = '';
+  els.divOutputEl.append(outputContent);
+}
+
+function createAnswersUl(kg) {
   const ulEl = document.createElement('ul')
   ulEl.setAttribute('id', 'answer-list');
-  els.divOutputEl.append(ulEl);
-
 
   const lbs = (kg * 2.2046).toFixed(2);
   addlistItem(ulEl, lbs, "lbs");
@@ -48,6 +50,8 @@ function createAnswersUl(kg) {
 
   const oz = (kg * 35.274).toFixed(2);
   addlistItem(ulEl, oz, "oz");
+
+  return ulEl;
 }
 
 function addlistItem(list, result, units) {
@@ -55,4 +59,3 @@ function addlistItem(list, result, units) {
   li.textContent = `${result} ${units}`;
   list.append(li);
 }
-
